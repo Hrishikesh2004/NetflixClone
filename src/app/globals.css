@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #141414;
+    --foreground: #ffffff;
+    --card: #181818;
+    --card-foreground: #ffffff;
+    --primary: #e50914;
+    --primary-foreground: #ffffff;
+    --muted: #808080;
+    --muted-foreground: #b3b3b3;
+    --border: #282828;
+  }
+
+  * {
+    border-color: var(--border);
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
+/* Custom Netflix-style scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e50914;
+}
+
+/* Hide scrollbar for carousel rows while maintaining scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Shimmer animation for skeletons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #1f1f1f 25%, #2a2a2a 37%, #1f1f1f 63%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Hero vignette gradient */
+.hero-vignette {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 20, 0.2) 0%,
+    rgba(20, 20, 20, 0.4) 60%,
+    rgba(20, 20, 20, 1) 100%
+  );
+}
+
+.hero-vignette-radial {
+  background: radial-gradient(
+    circle at 80% 30%,
+    transparent 0%,
+    rgba(20, 20, 20, 0.6) 50%,
+    rgba(20, 20, 20, 0.95) 90%
+  );
+}
